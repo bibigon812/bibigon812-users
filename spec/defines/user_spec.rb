@@ -10,7 +10,7 @@ describe 'users::user' do
     context "on #{os}" do
       let(:facts) { os_facts }
 
-      context "without ssh_authorized_keys" do
+      context 'without ssh_authorized_keys' do
         it { is_expected.to compile }
         it { is_expected.to compile.with_all_deps }
 
@@ -18,11 +18,9 @@ describe 'users::user' do
         it { is_expected.to contain_file('/home/namevar/.ssh') }
       end
 
-      context "with gid" do
+      context 'with gid' do
         let(:params) do
-          super().merge({
-            gid: 'namevar',
-          })
+          super().merge({gid: 'namevar'})
         end
 
         it { is_expected.to compile }
@@ -37,16 +35,18 @@ describe 'users::user' do
         end
       end
 
-      context "with ssh_authorized_keys" do
+      context 'with ssh_authorized_keys' do
         let(:params) do
-          super().merge({
-            ssh_authorized_keys: [
-              {
-                key: 'AAAAB3Nza[...]qXfdaQ==',
-                type: 'ssh-rsa'
-              }
-            ]
-          })
+          super().merge(
+            {
+              ssh_authorized_keys: [
+                {
+                  key: 'AAAAB3Nza[...]qXfdaQ==',
+                  type: 'ssh-rsa',
+                }
+              ]
+            }
+          )
         end
 
         it { is_expected.to compile }
