@@ -87,27 +87,34 @@ define users::user(
     purge_ssh_keys => empty($ssh_authorized_keys),
   }
 
-  file { "${home_dir}/.ssh":
-    ensure  => 'directory',
-    mode    => 'o=rwx',
-    owner   => $title,
-    group   => $gid,
-    ignore  => [
-      'authorized_keys',
-      'authorized_keys2',
-      'known_hosts',
-      'config',
-    ],
-    require => User[$title],
-  }
+  if $ensure == 'present' {
+    file { $home_dir:
+      ensure  => 'directory',
+      require => User[$title],
+    }
 
-  $ssh_authorized_keys.each |$index, $ssh_authorized_key| {
-    ssh_authorized_key { "${title}_${index}":
-      ensure  => $ensure,
-      user    => $title,
-      key     => $ssh_authorized_key['key'],
-      type    => $ssh_authorized_key['type'],
-      require => File["${home_dir}/.ssh"],
+    file { "${home_dir}/.ssh":
+      ensure  => 'directory',
+      mode    => 'o=rwx',
+      owner   => $title,
+      group   => $gid,
+      ignore  => [
+        'authorized_keys',
+        'authorized_keys2',
+        'known_hosts',
+        'config',
+      ],
+      require => File[$home_dir],
+    }
+
+    $ssh_authorized_keys.each |$index, $ssh_authorized_key| {
+      ssh_authorized_key { "${title}_${index}":
+        ensure  => $ensure,
+        user    => $title,
+        key     => $ssh_authorized_key['key'],
+        type    => $ssh_authorized_key['type'],
+        require => File["${home_dir}/.ssh"],
+      }
     }
   }
 }
