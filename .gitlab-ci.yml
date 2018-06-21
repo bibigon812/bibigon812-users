@@ -36,6 +36,7 @@ rspec-puppet-2.4.1:
   variables:
     PUPPET_GEM_VERSION: ~> 4.0
     CHECK: spec
+    LANG: C.UTF-8
   script:
     - bundle update
     - bundle exec rake $CHECK
@@ -64,6 +65,7 @@ rspec-puppet-2.1.9:
   variables:
     PUPPET_GEM_VERSION: ~> 4.0
     CHECK: spec
+    LANG: C.UTF-8
   script:
     - bundle update
     - bundle exec rake $CHECK
