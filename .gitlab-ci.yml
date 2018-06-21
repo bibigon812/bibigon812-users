@@ -2,6 +2,7 @@
 stages:
   - test_2.4.4
   - test_2.5.1
+  - build
 
 before_script:
   - bundle -v
@@ -70,3 +71,14 @@ rspec-puppet-2.5.1:
     - bundle update
     - bundle exec rake $CHECK
 
+package:
+  stage: build
+  image: ruby:2.4.4
+  variable:
+    LANG: C.UTF-8
+    VERSION: bundle exec rake module:version
+  only:
+    - tags
+  artifacts:
+    paths:
+      - pkg/spbtv-users-$(eval $VERSION).tar.gz
