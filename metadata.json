@@ -1,6 +1,6 @@
 {
   "name": "spbtv-users",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Dmitry Yakovlev",
   "summary": "This module manages users and their SSH authorized keys.",
   "license": "Apache-2.0",
