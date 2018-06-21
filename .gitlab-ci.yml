@@ -74,7 +74,7 @@ rspec-puppet-2.5.1:
 package:
   stage: build
   image: ruby:2.4.4
-  variable:
+  variables:
     LANG: C.UTF-8
     VERSION: bundle exec rake module:version
   only:
