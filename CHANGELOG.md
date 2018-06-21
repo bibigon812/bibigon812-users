@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased] - 2018-06-21
+
+### Added
+
+- resource File['~/.ssh'] requires File['~/']
+
 ## [0.2.0] - 2018-06-21
 
 ### Changed
