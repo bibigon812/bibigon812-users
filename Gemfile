@@ -65,6 +65,8 @@ gems.each do |gem_name, gem_params|
   gem gem_name, *gem_params
 end
 
+gem 'puppet-strings'
+
 # Evaluate Gemfile.local and ~/.gemfile if they exist
 extra_gemfiles = [
   "#{__FILE__}.local",
