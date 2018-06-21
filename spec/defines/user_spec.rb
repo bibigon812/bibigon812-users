@@ -14,9 +14,9 @@ describe 'users::user' do
 
       context 'without ssh_authorized_keys' do
         it { is_expected.to compile }
-        it { is_expected.to compile.with_all_deps }
 
         it { is_expected.to contain_user('namevar') }
+        it { is_expected.to contain_file('/home/namevar') }
         it { is_expected.to contain_file('/home/namevar/.ssh') }
       end
 
@@ -26,9 +26,9 @@ describe 'users::user' do
         end
 
         it { is_expected.to compile }
-        it { is_expected.to compile.with_all_deps }
 
         it { is_expected.to contain_user('namevar') }
+        it { is_expected.to contain_file('/home/namevar') }
         it { is_expected.to contain_file('/home/namevar/.ssh').that_requires('User[namevar]') }
         it do
           is_expected.to contain_group('namevar-namevar')
@@ -50,9 +50,9 @@ describe 'users::user' do
         end
 
         it { is_expected.to compile }
-        it { is_expected.to compile.with_all_deps }
 
         it { is_expected.to contain_user('namevar') }
+        it { is_expected.to contain_file('/home/namevar') }
         it { is_expected.to contain_file('/home/namevar/.ssh') }
         it do
           is_expected.to contain_ssh_authorized_key('namevar_0')
