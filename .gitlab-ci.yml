@@ -82,3 +82,6 @@ package:
   artifacts:
     paths:
       - pkg/spbtv-users-$(eval $VERSION).tar.gz
+  script:
+    - bundle exec rake module:clean
+    - bundle exec rake build
