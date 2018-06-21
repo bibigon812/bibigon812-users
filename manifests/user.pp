@@ -49,7 +49,7 @@
 define users::user(
 
   Enum['absent', 'present']                $ensure = 'present',
-  Boolean                                  $managehome = false,
+  Boolean                                  $managehome = true,
   Optional[String[1]]                      $comment = undef,
   Optional[Variant[Integer[0], String[1]]] $gid = undef,
   Array[String[1]]                         $groups = [],
