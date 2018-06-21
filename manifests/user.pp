@@ -1,11 +1,11 @@
-# This defined type manages users and their SSH keys. It's a proxy defined type
-# for User and Ssh_authorized_key.
+# This defined type manages user and his SSH authorized keys. It's a proxy
+# for the rsources User and Ssh_authorized_key.
 #
-# @summary Manages users and their SSH authorized keys.
+# @summary Manages user and his SSH authorized keys.
 #
 # @example
-#   auth::user { 'namevar':
-#     comment => 'Vasys Pupkin',
+#   auth::user { 'vpupkin':
+#     comment => 'Vasya Pupkin',
 #     groups  => ['sudo'],
 #     ssh_authorized_keys => [
 #       {
@@ -23,7 +23,7 @@
 #   Whether to manage the home directory when Puppet creates or removes the
 #   user. This creates the home directory if Puppet also creates the user
 #   account, and deletes the home directory if Puppet also removes the user
-#   account. Defaults to false.
+#   account.
 #
 # @param comment
 #   A description of the user. Generally the user’s full name.
@@ -40,10 +40,11 @@
 #   If minimum is specified, Puppet will ensure that the user is a member of
 #   all specified groups, but will not remove any other groups that the user is
 #   a part of. If inclusive is specified, Puppet will ensure that the user is
-#   a member of only specified groups. Defaults to minimum.
+#   a member of only specified groups.
 #   Valid values are inclusive, minimum.
 #
 # @param ssh_authorized_keys
+#   Contains the tuple with ssh type and key.
 #
 define users::user(
 
