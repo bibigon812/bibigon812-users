@@ -76,12 +76,11 @@ package:
   image: ruby:2.4.4
   variables:
     LANG: C.UTF-8
-    VERSION: bundle exec rake module:version
   only:
     - tags
   artifacts:
     paths:
-      - pkg/spbtv-users-$(eval $VERSION).tar.gz
+      - pkg/spbtv-users-*.tar.gz
   script:
     - bundle exec rake module:clean
     - bundle exec rake build
