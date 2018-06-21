@@ -76,8 +76,8 @@ package:
   image: ruby:2.4.4
   variables:
     LANG: C.UTF-8
-  only:
-    - tags
+  # only:
+  #   - tags
   artifacts:
     paths:
       - pkg/spbtv-users-*.tar.gz
