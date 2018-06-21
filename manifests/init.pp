@@ -1,3 +1,8 @@
+# It uses the virtual and realized resources Users::User. All users parameters
+# should be defined # for all nodes in the hash users::virtual. Required users
+# should be listed in the array users::realized for a node.
+#
+# @summary This class manages users and their SSH authorized keys.
 #
 # @example
 #   include users
@@ -15,7 +20,9 @@
 #     - user1
 #
 # @param virtual
+#   All users parameters.
 # @param realized
+#   List of users or tags to be realized.
 class users(
   Hash             $virtual,
   Array[String[1]] $realized,

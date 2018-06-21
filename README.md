@@ -1,72 +1,136 @@
 
 # users
 
-Welcome to your new module. A short overview of the generated parts can be found in the PDK documentation at https://puppet.com/pdk/latest/pdk_generating_modules.html .
-
-The README template below provides a starting point with details about what information to include in your README.
-
-
-
-
-
-
+This module manages users and their SSH authorized keys.
 
 #### Table of Contents
 
 1. [Description](#description)
-2. [Setup - The basics of getting started with users](#setup)
-    * [What users affects](#what-users-affects)
-    * [Setup requirements](#setup-requirements)
-    * [Beginning with users](#beginning-with-users)
-3. [Usage - Configuration options and additional functionality](#usage)
-4. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-5. [Limitations - OS compatibility, etc.](#limitations)
-6. [Development - Guide for contributing to the module](#development)
+2. [Usage - Configuration options and additional functionality](#usage)
+3. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
+
 
 ## Description
 
-Start with a one- or two-sentence summary of what the module does and/or what problem it solves. This is your 30-second elevator pitch for your module. Consider including OS/Puppet version it works with.
-
-You can give more descriptive information in a second paragraph. This paragraph should answer the questions: "What does this module *do*?" and "Why would I use it?" If your module has a range of functionality (installation, configuration, management, etc.), this is the time to mention it.
-
-## Setup
-
-### What users affects **OPTIONAL**
-
-If it's obvious what your module touches, you can skip this section. For example, folks can probably figure out that your mysql_instance module affects their MySQL instances.
-
-If there's more that they should know about, though, this is the place to mention:
-
-* Files, packages, services, or operations that the module will alter, impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
-
-### Setup Requirements **OPTIONAL**
-
-If your module requires anything extra before setting up (pluginsync enabled, another module, etc.), mention it here.
-
-If your most recent release breaks compatibility or requires particular steps for upgrading, you might want to include an additional "Upgrading" section here.
-
-### Beginning with users
-
-The very basic steps needed for a user to get the module up and running. This can include setup steps, if necessary, or it can be an example of the most basic use of the module.
+It uses the virtual and
+realized resources Users::User. All users parameters should be defined for all
+nodes in the hash users::virtual. Required users should be listed in the array users::realized for a node.
 
 ## Usage
 
-This section is where you describe how to customize, configure, and do the fancy stuff with your module here. It's especially helpful if you include usage examples and code samples for doing things with your module.
+Allow hiera find this module.
+
+```puppet
+lookup('classes', Array[String[1]], 'unique', []).include
+```
+
+```yaml
+classes:
+  - users
+
+users::virtual:
+  user1:
+    comment: Test user1
+    tag: tag1
+    ssh_authorized_keys:
+      -
+        key: AAAAB3Nza[...]qXfdaQ==
+        type: ssh-rsa
+
+users::realized:
+  - user1
+```
 
 ## Reference
 
-Users need a complete list of your module's classes, types, defined types providers, facts, and functions, along with the parameters for each. You can provide this list either via Puppet Strings code comments or as a complete list in the README Reference section.
+### Puppet Class: users
 
-* If you are using Puppet Strings code comments, this Reference section should include Strings information so that your users know how to access your documentation.
+#### Summary
 
-* If you are not using Puppet Strings, include a list of all of your classes, defined types, and so on, along with their parameters. Each element in this listing should include:
+This class manages users and their SSH authorized keys.
+Overview
 
-  * The data type, if applicable.
-  * A description of what the element does.
-  * Valid values, if the data type doesn't make it obvious.
-  * Default value, if any.
+It uses the virtual and realized resources Users::User. All users parameters should be defined # for all nodes in the hash users::virtual. Required users should be listed in the array users::realized for a node.
+
+#### Examples
+
+```puppet
+include users
+```
+
+```yaml
+users::virtual:
+  user1:
+    comment: Test user1
+    tag: tag1
+    ssh_authorized_keys:
+      -
+        key: AAAAB3Nza[...]qXfdaQ==
+        type: ssh-rsa
+
+users::realized:
+  - user1
+```
+
+#### Parameters
+
+* virtual (Hash) — All users parameters.
+
+* realized (Array[String[1]]) — List of users or tags to be realized.
+
+### Defined Type: users::user
+
+#### Summary
+
+Manages user and his SSH authorized keys.
+
+#### Overview
+
+This defined type manages user and his SSH authorized keys. It's a proxy for the rsources User and Ssh_authorized_key.
+
+#### Examples
+
+```puppet
+auth::user { 'vpupkin':
+  comment => 'Vasya Pupkin',
+  groups  => ['sudo'],
+  ssh_authorized_keys => [
+    {
+      'key'  => 'AAAAB3Nza[...]qXfdaQ==',
+      'type' => 'ssh-rsa',
+    },
+  ],
+}
+```
+
+#### Parameters
+
+* ensure (Enum['absent', 'present']) (defaults to: 'present') — The basic state
+  that the object should be in. Valid values are present, absent.
+* managehome (Boolean) (defaults to: false) — Whether to manage the home
+  directory when Puppet creates or removes the user. This creates the home
+  directory if Puppet also creates the user account, and deletes the home
+  directory if Puppet also removes the user account.
+
+* comment (Optional[String[1]]) (defaults to: undef) — A description of the
+  user. Generally the user’s full name.
+
+* gid (Optional[Variant[Integer[0], String[1]]]) (defaults to: undef) —
+  The user’s primary group. Can be specified numerically or by name.
+
+* groups (Array[String[1]]) (defaults to: []) — The groups to which the user
+  belongs. The primary group should not be listed, and groups should be
+  identified by name rather than by GID. Multiple groups should be specified as an array.
+
+* membership (Enum['inclusive', 'minimum']) (defaults to: 'minimum') — If
+  minimum is specified, Puppet will ensure that the user is a member of all
+  specified groups, but will not remove any other groups that the user is
+  a part of. If inclusive is specified, Puppet will ensure that the user is
+  a member of only specified groups. Valid values are inclusive, minimum.
+
+* ssh_authorized_keys
+  (Array[Struct[{ 'type' => String[1], 'key' => String[1] }]])
+  (defaults to: []) — Contains the tuple with ssh type and key.
 
 ## Limitations
 
