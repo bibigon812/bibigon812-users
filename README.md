@@ -107,7 +107,7 @@ auth::user { 'vpupkin':
 
 * ensure (Enum['absent', 'present']) (defaults to: 'present') — The basic state
   that the object should be in. Valid values are present, absent.
-* managehome (Boolean) (defaults to: false) — Whether to manage the home
+* managehome (Boolean) (defaults to: true) — Whether to manage the home
   directory when Puppet creates or removes the user. This creates the home
   directory if Puppet also creates the user account, and deletes the home
   directory if Puppet also removes the user account.
