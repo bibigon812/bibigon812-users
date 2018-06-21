@@ -20,7 +20,7 @@ describe 'users::user' do
 
       context 'with gid' do
         let(:params) do
-          super().merge({gid: 'namevar'})
+          super().merge(gid: 'namevar')
         end
 
         it { is_expected.to compile }
@@ -38,14 +38,12 @@ describe 'users::user' do
       context 'with ssh_authorized_keys' do
         let(:params) do
           super().merge(
-            {
-              ssh_authorized_keys: [
-                {
-                  key: 'AAAAB3Nza[...]qXfdaQ==',
-                  type: 'ssh-rsa',
-                }
-              ]
-            }
+            ssh_authorized_keys: [
+              {
+                key: 'AAAAB3Nza[...]qXfdaQ==',
+                type: 'ssh-rsa',
+              },
+            ],
           )
         end
 
