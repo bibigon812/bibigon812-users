@@ -131,15 +131,3 @@ auth::user { 'vpupkin':
 * ssh_authorized_keys
   (Array[Struct[{ 'type' => String[1], 'key' => String[1] }]])
   (defaults to: []) — Contains the tuple with ssh type and key.
-
-## Limitations
-
-This is where you list OS compatibility, version compatibility, etc. If there are Known Issues, you might want to include them under their own heading here.
-
-## Development
-
-Since your module is awesome, other users will want to play with it. Let them know what the ground rules for contributing are.
-
-## Release Notes/Contributors/Etc. **Optional**
-
-If you aren't using changelog, put your release notes here (though you should consider using changelog). You can also add any additional sections you feel are necessary or important to include here. Please use the `## ` header.
