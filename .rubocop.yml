@@ -2,17 +2,20 @@
 require: rubocop-rspec
 AllCops:
   DisplayCopNames: true
-  TargetRubyVersion: '2.4'
+  TargetRubyVersion: '2.1'
   Include:
-    - ./**/*.rb
+  - "./**/*.rb"
   Exclude:
-    - bin/*
-    - ".vendor/**/*"
-    - Gemfile
-    - Rakefile
-    - pkg/**/*
-    - spec/fixtures/**/*
-    - vendor/**/*
+  - bin/*
+  - ".vendor/**/*"
+  - "**/Gemfile"
+  - "**/Rakefile"
+  - pkg/**/*
+  - spec/fixtures/**/*
+  - vendor/**/*
+  - "**/Puppetfile"
+  - "**/Vagrantfile"
+  - "**/Guardfile"
 Metrics/LineLength:
   Description: People have wide screens, use them.
   Max: 200
@@ -20,7 +23,7 @@ RSpec/BeforeAfterAll:
   Description: Beware of using after(:all) as it may cause state to leak between tests.
     A necessary evil in acceptance testing.
   Exclude:
-    - spec/acceptance/**/*.rb
+  - spec/acceptance/**/*.rb
 RSpec/HookArgument:
   Description: Prefer explicit :each argument, matching existing module's style
   EnforcedStyle: each
@@ -65,6 +68,12 @@ Style/SymbolArray:
   EnforcedStyle: brackets
 RSpec/MessageSpies:
   EnforcedStyle: receive
+Style/Documentation:
+  Exclude:
+  - lib/puppet/parser/functions/**/*
+  - spec/**/*
+Style/WordArray:
+  EnforcedStyle: brackets
 Style/CollectionMethods:
   Enabled: true
 Style/MethodCalledOnDoEndBlock:
@@ -72,6 +81,8 @@ Style/MethodCalledOnDoEndBlock:
 Style/StringMethods:
   Enabled: true
 Layout/EndOfLine:
+  Enabled: false
+Layout/IndentHeredoc:
   Enabled: false
 Metrics/AbcSize:
   Enabled: false
