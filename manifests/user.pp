@@ -1,5 +1,5 @@
 # This defined type manages user and his SSH authorized keys. It's a proxy
-# for the rsources User and Ssh_authorized_key.
+# for the User and Ssh_authorized_key resources.
 #
 # @summary Manages user and his SSH authorized keys.
 #
@@ -44,7 +44,7 @@
 #   Valid values are inclusive, minimum.
 #
 # @param ssh_authorized_keys
-#   Contains the tuple with ssh type and key.
+#   Contains an array of structures with type and a key.
 #
 define users::user(
 
