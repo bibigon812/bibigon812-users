@@ -112,7 +112,7 @@ define users::user(
     $ssh_authorized_keys.each |$index, $ssh_authorized_key| {
       $ssh_authorized_key_title = $ssh_authorized_key['comment'] ? {
         undef   => "${title}_${index}",
-        default => $ssh_authorized_key['comment'],
+        default => "${title}_${index}_${ssh_authorized_key['comment']}",
       }
 
       ssh_authorized_key { $ssh_authorized_key_title:
