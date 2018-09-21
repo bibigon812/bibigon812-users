@@ -2,6 +2,8 @@
 
 This module manages users and their SSH authorized keys.
 
+[![Build Status](https://travis-ci.org/bibigon812/bibigon812-users.svg?branch=master)](https://travis-ci.org/bibigon812/bibigon812-users)
+
 ## Usage
 
 Allow hiera find this module.
