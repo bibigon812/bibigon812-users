@@ -26,7 +26,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-- resource File['~/.ssh'] requires File['~/']
+- resource `File['~/.ssh']` requires `File['~/']`
 
 ## [0.2.0] - 2018-06-21
 
