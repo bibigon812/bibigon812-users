@@ -9,8 +9,9 @@
 #     groups  => ['sudo'],
 #     ssh_authorized_keys => [
 #       {
-#         'key'  => 'AAAAB3Nza[...]qXfdaQ==',
-#         'type' => 'ssh-rsa',
+#         'key'     => 'AAAAB3Nza[...]qXfdaQ==',
+#         'type'    => 'ssh-rsa',
+#         'comment' => 'my@key',
 #       },
 #     ],
 #   }
@@ -44,7 +45,7 @@
 #   Valid values are inclusive, minimum.
 #
 # @param ssh_authorized_keys
-#   Contains an array of structures with type and a key.
+#   Contains an array of structures with the type, key and comment.
 #
 define users::user(
 
