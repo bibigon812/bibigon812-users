@@ -35,9 +35,9 @@ notifications:
   email: false
 deploy:
   provider: puppetforge
-  user: puppet
+  user: bibigon812
   password:
-    secure: ""
+    secure: "n0AS0a/t22rvIxBp5zTqC2+qUh3qq3hyIA8e1PekB1isF9NY16TqkXghiTLfmRQo4gllKzViCrwsSSeqJoQaKb2nqs6WKVrxNFyJ7ovcgsx8WbDkVXZpcmoGkru+ZWlDjaUD7swVFeh41t5QkmGukXeR5q1GNVnFpOKK0SgBkzX4Tiflr0rYpMPvEBM+0uktvYcGdPBB5JLgjwnNxAwYpfdBjekc54Epq04oPtYQd52ZCAXDxPAe/fSEaqs5rAxxl5m+BQKAT10oetvfyN79MnzH+VTlta1z1PfjTiuExaJh0EzGFWrBif8lBtDyriYY4dd7HNcP1GgzcMAtWvEYAjqc8Ubk+XmSWDC/9abCanjRYY3DWQpixHghrVCSiMWfNKyafGwA8cn5uk8TOqLgskD+m/Jhdyyhjrtkj1UdSOHolm5I+iLVSb1Wq6QxMKFfoxKiWKPjxe1GTXAm2HAjR/BnWnoqoD43bMlklLlNnWkVrrMHwMmhfIXTN43OUt6AkUTdr/Y/F7Mo+z9ABvdUPk+5HZ7775VV9M/2hS5GVM/iM5sRDdVQQRMPzyWE6IVFTxnTshqTxcWHKKc99JQq8a3MLwtVBjA7nstsXdqHjABlcnWW1pvGz/8DXmh5mdBjQf5IzaDaQWlUp48qA1PWkDT1ct0trYf4pGzbSmezrH4="
   on:
     tags: true
     all_branches: true
