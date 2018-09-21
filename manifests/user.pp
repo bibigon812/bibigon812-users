@@ -58,8 +58,9 @@ define users::user(
   Array[String[1]]             $groups              = [],
   Enum['inclusive', 'minimum'] $membership          = 'minimum',
   Array[Struct[{
-    'type' => String[1],
-    'key'  => String[1]
+    'type'    => String[1],
+    'key'     => String[1],
+    'comment' => Optional[String[1]],
   }]]                          $ssh_authorized_keys = [],
 
 ) {
@@ -108,7 +109,12 @@ define users::user(
     }
 
     $ssh_authorized_keys.each |$index, $ssh_authorized_key| {
-      ssh_authorized_key { "${title}_${index}":
+      $ssh_authorized_key_title = $ssh_authorized_key['comment'] ? {
+        undef   => "${title}_${index}",
+        default => $ssh_authorized_key['comment'],
+      }
+
+      ssh_authorized_key { $ssh_authorized_key_title:
         ensure  => $ensure,
         user    => $title,
         key     => $ssh_authorized_key['key'],
