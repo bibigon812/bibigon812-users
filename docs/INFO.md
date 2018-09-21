@@ -70,8 +70,9 @@ auth::user { 'vpupkin':
   groups  => ['sudo'],
   ssh_authorized_keys => [
     {
-      'key'  => 'AAAAB3Nza[...]qXfdaQ==',
-      'type' => 'ssh-rsa',
+      'key'     => 'AAAAB3Nza[...]qXfdaQ==',
+      'type'    => 'ssh-rsa',
+      'comment' => 'my@key',
     },
   ],
 }
@@ -145,11 +146,12 @@ Default value: 'minimum'
 ##### `ssh_authorized_keys`
 
 Data type: `Array[Struct[{
-    'type' => String[1],
-    'key'  => String[1]
+    'type'    => String[1],
+    'key'     => String[1],
+    'comment' => Optional[String[1]],
   }]]`
 
-Contains an array of structures with type and a key.
+Contains an array of structures with the type, key and comment.
 
 Default value: []
 

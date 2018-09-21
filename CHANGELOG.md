@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## Added
+
+- a comment of a ssh authorized key
+
 ### Changed
 
 - pdk version to 1.7.0
