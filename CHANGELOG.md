@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Changed
+
+- a title of a ssh_authorized_key resource
+
 ## [1.0.0] - 2018-09-21
 
 ### Added
