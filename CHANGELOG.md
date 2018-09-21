@@ -8,6 +8,14 @@ All notable changes to this project will be documented in this file.
 
 - a title of a ssh_authorized_key resource
 
+### Fixed
+
+- compare links in the changelog file
+
+### Updated
+
+- documentation
+
 ## [1.0.0] - 2018-09-21
 
 ### Added
