@@ -49,8 +49,8 @@ All notable changes to this project will be documented in this file.
 - CHANGELOG uses the keepchangelog.com format.
 - README now contains necessary information.
 
-[Unreleased]: https://gitlab.spbtv.com/Trezin/spbtv_modules/users/compare/v1.0.0...master
-[1.0.0]: https://gitlab.spbtv.com/Trezin/spbtv_modules/users/compare/v0.2.1...v1.0.0
-[0.2.1]: https://gitlab.spbtv.com/Trezin/spbtv_modules/users/compare/v0.2.0...v0.2.1
-[0.2.0]: https://gitlab.spbtv.com/Trezin/spbtv_modules/users/compare/v0.1.1...v0.2.0
-[0.1.1]: https://gitlab.spbtv.com/Trezin/spbtv_modules/users/compare/v0.1.0...v0.1.1
+[Unreleased]: https://github.com/bibigon812/bibigon812-users/compare/v1.0.0...master
+[1.0.0]: https://github.com/bibigon812/bibigon812-users/compare/v0.2.1...v1.0.0
+[0.2.1]: https://github.com/bibigon812/bibigon812-users/compare/v0.2.0...v0.2.1
+[0.2.0]: https://github.com/bibigon812/bibigon812-users/compare/v0.1.1...v0.2.0
+[0.1.1]: https://github.com/bibigon812/bibigon812-users/compare/v0.1.0...v0.1.1
