@@ -1,10 +1,12 @@
 {
-  "name": "spbtv-users",
+  "name": "bibigon812-users",
   "version": "0.2.1",
   "author": "Dmitry Yakovlev",
   "summary": "This module manages users and their SSH authorized keys.",
   "license": "Apache-2.0",
-  "source": "",
+  "source": "https://github.com/bibigon812/bibigon812-users",
+  "project_page": "https://github.com/bibigon812/bibigon812-users",
+  "issues_url": "https://github.com/bibigon812/bibigon812-users/issues",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
