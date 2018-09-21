@@ -24,6 +24,7 @@ users::virtual:
       -
         key: AAAAB3Nza[...]qXfdaQ==
         type: ssh-rsa
+        comment: my@key
 
 users::realized:
   - user1
