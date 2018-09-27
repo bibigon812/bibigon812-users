@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [1.2.0] - 2018-09-27
 
 ### Added
 
@@ -63,7 +63,8 @@ All notable changes to this project will be documented in this file.
 - CHANGELOG uses the keepchangelog.com format.
 - README now contains necessary information.
 
-[Unreleased]: https://github.com/bibigon812/bibigon812-users/compare/v1.1.0...master
+[Unreleased]: https://github.com/bibigon812/bibigon812-users/compare/v1.2.0...master
+[1.2.0]: https://github.com/bibigon812/bibigon812-users/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/bibigon812/bibigon812-users/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/bibigon812/bibigon812-users/compare/v0.2.1...v1.0.0
 [0.2.1]: https://github.com/bibigon812/bibigon812-users/compare/v0.2.0...v0.2.1
