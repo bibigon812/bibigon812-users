@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Added
+
+- default lookup options
+
 ## [1.1.0] - 2018-09-21
 
 ### Changed
