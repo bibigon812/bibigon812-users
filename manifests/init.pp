@@ -17,6 +17,9 @@
 #   users::realized:
 #     - user1
 #
+#   users::removed:
+#     - user2
+#
 # @param virtual
 #   All users parameters.
 # @param realized
@@ -24,6 +27,7 @@
 class users(
   Hash             $virtual,
   Array[String[1]] $realized,
+  Array[String[1]] $removed,
 ) {
   $virtual.each |$user_name, $user_opts| {
     @Users::User { $user_name:
@@ -31,7 +35,13 @@ class users(
     }
   }
 
-  $realized.each |$value| {
+  ($realized - $removed).each |$value| {
     Users::User <| name == $value or tag == $value |>
+  }
+
+  $removed.each |$value| {
+    Users::User <| name == $value or tag == $value |> {
+      ensure => absent,
+    }
   }
 }

@@ -1,8 +1,12 @@
 ---
 lookup_options:
   users::virtual:
-    merge: deep
+    merge:
+      strategy: deep
   users::realized:
+    merge: unique
+  users::removed:
     merge: unique
 users::virtual: {}
 users::realized: []
+users::removed: []
