@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Added
+
+- dependencies puppetlabs-sshkeys_core
+- REFERENCE.md
+
+### Updated
+
+- pdk
+- puppet minimal versions
+
 ## [1.2.0] - 2018-09-27
 
 ### Added
