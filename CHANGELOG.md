@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.2] - 2019-08-09
+
+### Added
+
+- compatibility with Puppet 5.x.x
+
 ## [1.2.1] - 2019-08-09
 
 ### Added
