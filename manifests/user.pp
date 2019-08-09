@@ -4,7 +4,7 @@
 # @summary Manages user and his SSH authorized keys.
 #
 # @example
-#   auth::user { 'vpupkin':
+#   users::user { 'vpupkin':
 #     comment => 'Vasya Pupkin',
 #     groups  => ['sudo'],
 #     ssh_authorized_keys => [
